@@ -1,19 +1,19 @@
 h1 {
     font-family: 'Open Sans', sans-serif;
     color: #656565;
-    font-size: 65px;
     font-weight: bold;
     float: left;
-    margin-left: calc((calc(calc(500px * 0.68) / 3.63) / 2) + 12px - 2px);
+    margin-left: calc((calc(calc(100vw * 0.68) / 3.63) / 2) + 12px + 0.5vw);
     position: absolute;
-    bottom: -90px;
+    font-size: 14vw;
+    bottom: -26vw;
 }
 
 a {
     font-family: 'Open Sans', sans-serif;
     color: #656565;
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 6vw;
+    line-height: 10vw;
     font-weight: bold;
     text-decoration: none;
     display: block;
@@ -21,7 +21,7 @@ a {
     left: 50%;
     width: 100%;
     margin-top: 70px;
-    margin-left: -24px;
+    margin-left: calc((calc(calc(100vw * 0.68) / 3.63) / 2) + 12px + 0.5vw);
     transition: color .3s ease-in-out;
 }
 
@@ -31,22 +31,47 @@ a:hover {
 
 .itenteges {
     margin: auto;
-    text-align: center;
+}
+@media screen and (min-width: 500px) {
+    h1 {
+        font-size: 65px;
+        bottom: -90px;
+        margin-left: calc((calc(calc(500px * 0.68) / 3.63) / 2) + 12px - 2px);
+    }
+
+    a {
+        font-size: 30px;
+        line-height: 30px;
+        margin-left: -24px;
+    }
+
+    .itenteges {
+        text-align: center;
+    }
 }
 
 .logo {
     background-color: transparent;
-    width: 500px;
-    height: 500px;
+    width: 100vw;
+    height: 100vw;
+    max-height: 500px;
+    max-width: 500px;
     position: relative;
     margin: 2vh auto 0;
 }
 
 .ruler {
-    width: calc(calc(500px * 0.68) / 3.63);
-    height: calc(500px * 0.68);
+    width: calc(calc(100vw * 0.68) / 3.63);
+    height: calc(100vw * 0.68);
     border: 12px solid #656565;
     border-radius: 6px;
+    overflow: hidden;
+}
+@media screen and (min-width: 500px) {
+    .ruler {
+        width: calc(calc(500px * 0.68) / 3.63);
+        height: calc(500px * 0.68);
+    }
 }
 
 .ruler.grey {
@@ -58,7 +83,8 @@ a:hover {
 }
 
 .bar {
-    height: 11px;
+    height: 40vw;
+    max-height: 11px;
     width: 60%;
     margin: 25% 0 25% -5%;
     background-color: #656565;
@@ -126,37 +152,63 @@ a:hover {
     width: inherit;
     top: 0;
     overflow: hidden;
+    left: calc((calc(calc(100vw * 0.68) / 3.63) / 2) + 12px + 0px);
 }
-
-.letter-t {
-    left: calc((calc(calc(500px * 0.68) / 3.63) / 2) + 12px + 1px);
+@media screen and (min-width: 500px) {
+    .letter-i,
+    .letter-t {
+        left: calc((calc(calc(500px * 0.68) / 3.63) / 2) + 12px + 1px);
+    }
 }
 
 .letter-t .ruler {
     position: absolute;
-    top: calc(calc(calc(500px * 0.68) / 3.63) + 12px + 1px);
-    left: calc(calc(calc(500px * 0.68) / 3.63) + (2 * (12px + 1px)));
+    top: calc(calc(calc(100vw * 0.68) / 3.63) + 12px + 0px);
+    left: calc(calc(calc(100vw * 0.68) / 3.63) + (2 * (12px + 0px)));
     -webkit-transform: scale(0.9);
     transform: scale(0.9);
 }
+@media screen and (min-width: 500px) {
+    .letter-t .ruler {
+        top: calc(calc(calc(500px * 0.68) / 3.63) + 12px + 1px);
+        left: calc(calc(calc(500px * 0.68) / 3.63) + (2 * (12px + 1px)));
+    }
+}
 
 .letter-t .ruler.horizontal {
-    -webkit-transform: translate(calc(calc(calc(500px * 0.68) / 3.63) + (2 * (12px + 1px))), 0) rotate(-90deg);
-    transform: translate(calc(calc(calc(500px * 0.68) / 3.63) + (2 * (12px + 1px))), 0) rotate(-90deg);
-    top: calc((calc(calc(500px * 0.68) / 3.63) - 1px + 12px) * -1);
-    left: calc(1px * 2);
+    -webkit-transform: translate(calc(calc(calc(100vw * 0.68) / 3.63) + (2 * (12px + 0px))), 0) rotate(-90deg);
+    transform: translate(calc(calc(calc(100vw * 0.68) / 3.63) + (2 * (12px + 0px))), 0) rotate(-90deg);
+    top: calc((calc(calc(100vw * 0.68) / 3.63) - 0px + 12px) * -1);
+    left: calc(0px * 2);
+}
+@media screen and (min-width: 500px) {
+    .letter-t .ruler.horizontal {
+        -webkit-transform: translate(calc(calc(calc(500px * 0.68) / 3.63) + (2 * (12px + 1px))), 0) rotate(-90deg);
+        transform: translate(calc(calc(calc(500px * 0.68) / 3.63) + (2 * (12px + 1px))), 0) rotate(-90deg);
+        top: calc((calc(calc(500px * 0.68) / 3.63) - 1px + 12px) * -1);
+        left: calc(1px * 2);
+    }
 }
 
 .letter-i {
-    left: 0;
+    margin-left: calc((12px + 0px) / 2 * -1);
+}
+@media screen and (min-width: 500px) {
+    .letter-i {
+        margin-left: calc((12px + 1px) * -1);
+    }
 }
 
 .letter-i .ruler {
     -webkit-transform: rotate(180deg) scale(0.75);
     transform: rotate(180deg) scale(0.75);
     position: absolute;
-    bottom: calc(((12px + 1px) / 3.63) * 0.75);
-    left: calc(calc((calc(calc(500px * 0.68) / 3.63) / 2) + 12px + 1px) * 0.75);
+    top: calc(calc(calc(100vw * 0.68) / 3.63) + 12px + 0px + 5.5vw);
+}
+@media screen and (min-width: 500px) {
+    .letter-i .ruler {
+        top: calc(calc(calc(500px * 0.68) / 3.63) + 12px + 1px + 27px);
+    }
 }
 @-webkit-keyframes wave {
     30% {
