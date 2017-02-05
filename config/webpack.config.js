@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('./project.config')
 const debug = require('debug')('app:config:webpack')
 const ArchivePlugin = require('webpack-archive-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const __DEV__ = project.globals.__DEV__
 const __PROD__ = project.globals.__PROD__
@@ -66,15 +67,11 @@ webpackConfig.plugins = [
       collapseWhitespace : true
     }
   }),
-  new HtmlWebpackPlugin({
-    filename: 'logo.jpg'
-  }),
-  new HtmlWebpackPlugin({
-    filename: 'humans.txt'
-  }),
-  new HtmlWebpackPlugin({
-    filename: 'robots.txt'
-  })
+  new CopyWebpackPlugin([
+    { from: 'public/logo.jpg' },
+    { from: 'public/robots.txt' },
+    { from: 'public/humans.txt' }
+  ])
 ]
 
 // Ensure that the compiler exits on errors during testing so that
