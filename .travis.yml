@@ -17,3 +17,4 @@ script:
 
 after_success:
   - npm run codecov
+  - curl --ftp-create-dirs -T dist.tar.gz -u f1101_itenteges:GR6DmL7X6rws ftp://s4.mydevil.net/

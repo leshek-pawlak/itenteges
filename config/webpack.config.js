@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('./project.config')
 const debug = require('debug')('app:config:webpack')
+const ArchivePlugin = require('webpack-archive-plugin')
 
 const __DEV__ = project.globals.__DEV__
 const __PROD__ = project.globals.__PROD__
@@ -64,6 +65,15 @@ webpackConfig.plugins = [
     minify   : {
       collapseWhitespace : true
     }
+  }),
+  new HtmlWebpackPlugin({
+    filename: 'logo.jpg'
+  }),
+  new HtmlWebpackPlugin({
+    filename: 'humans.txt'
+  }),
+  new HtmlWebpackPlugin({
+    filename: 'robots.txt'
   })
 ]
 
@@ -101,7 +111,8 @@ if (__DEV__) {
         warnings  : false
       }
     }),
-    new webpack.optimize.AggressiveMergingPlugin()
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new ArchivePlugin({ format: 'tar' })
   )
 }
 
