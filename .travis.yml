@@ -1,20 +1,20 @@
 sudo: false
 language: node_js
 node_js:
-  - "6"
-
+  - '6'
 addons:
   ssh_known_hosts:
-    - s4.mydevil.net
-    - 31.186.84.229
-
+  - s4.mydevil.net
+  - 31.186.84.229
 install:
   - npm install -g yarn
   - yarn install
-
 script:
   - npm run deploy
-
 after_success:
+  - $(npm bin)/set-up-ssh --key "$encrypted_dee8290d83d0_key" --iv "$encrypted_dee8290d83d0_iv" --path-encrypted-key ".travis/github_deploy_key.enc"
   - npm run codecov
   - shipit production deploy
+env:
+  global:
+    - secure: "UMEBzMXDXp/l3f1pzyQJYsZ3HlgdPbUy9uVhhYPdv4AEd/crSoX64aBPkgHOHI2LsF4wwe9Mq5N/WIFqlgRWuzyTzZuAa6V71HQlYXcXffhjMgumrfCS71NEiTIjnJOK1MVs9q7JBahQDKEBv/R0OvTdCHIRlNuM+kQ7U4yWb1rrRZB1HDxS6SUvoPHqYtdGE33EAxiKbWdIwlqz/LBntHBhjCn6cWSlkFsGAwmCba86Xs5g6BscORlLNRwK/+M0D5FuiKzbkPYJ8bJ97RBvZSZ0VjmqIJhKX/VNObT5UHDu86gjn3X3mlVd5dzm5abGpBL9D+IX5BCMQ0nnO/pH93ves4UvZ4LhMAK9w12mrE2ue4o6S0IVKNfEVnQ4p7VjzqEgak6NzURl6ndmULCYKklPapY+rRZS4NiYuaMysTMFllOIdxvNy/FaYSexy3b5Pd+7lKBTQ1nU+Pf0clkMzVxWy3ssNhFTTH1IZBVOWD/p8vZ1GNfpVNQO8IUOHbXqevNXDx7L9emmoQ9EsBMwfy/fDSfiDgkNxAb8LHjKNn2KJK4GK2ld3Kv9teix/Yb9SjDG93J+h3OEsWDshCJYufOLYk/rNyaAe6cVkemi70syDo5W8/jTjiLAVLimpg5Q2FaUiomanA2aEexfa7Gz90gRLWo6zeTFbMpoSN24qDM="
