@@ -1,7 +1,6 @@
 /* eslint key-spacing:0 spaced-comment:0 */
 const path = require('path')
 const debug = require('debug')('app:config:project')
-const argv = require('yargs').argv
 const ip = require('ip')
 
 debug('Creating default configuration.')
@@ -19,7 +18,6 @@ const config = {
   dir_dist   : 'dist',
   dir_public : 'public',
   dir_server : 'server',
-  dir_test   : 'tests',
 
   // ----------------------------------
   // Server Configuration
@@ -49,14 +47,6 @@ const config = {
   compiler_vendors : [
     'react',
     'react-router'
-  ],
-
-  // ----------------------------------
-  // Test Configuration
-  // ----------------------------------
-  coverage_reporters : [
-    { type : 'text-summary' },
-    { type : 'lcov', dir : 'coverage' }
   ]
 }
 
@@ -80,8 +70,6 @@ config.globals = {
   'NODE_ENV'     : config.env,
   '__DEV__'      : config.env === 'development',
   '__PROD__'     : config.env === 'production',
-  '__TEST__'     : config.env === 'test',
-  '__COVERAGE__' : !argv.watch && config.env === 'test',
   '__BASENAME__' : JSON.stringify(process.env.BASENAME || '')
 }
 

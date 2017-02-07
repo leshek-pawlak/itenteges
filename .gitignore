@@ -5,6 +5,5 @@ node_modules
 
 dist
 dist.tar.gz
-coverage
 
 .idea/
