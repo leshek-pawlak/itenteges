@@ -1,6 +1,5 @@
 const argv = require('yargs').argv
 const webpack = require('webpack')
-const cssnano = require('cssnano')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const project = require('./project.config')
@@ -144,16 +143,6 @@ webpackConfig.module.loaders = [{
 const BASE_CSS_LOADER = 'css?sourceMap&-minimize'
 
 webpackConfig.module.loaders.push({
-  test    : /\.scss$/,
-  exclude : null,
-  loaders : [
-    'style',
-    BASE_CSS_LOADER,
-    'postcss',
-    'sass?sourceMap'
-  ]
-})
-webpackConfig.module.loaders.push({
   test    : /\.css$/,
   exclude : null,
   loaders : [
@@ -168,7 +157,8 @@ webpackConfig.sassLoader = {
 }
 
 webpackConfig.postcss = [
-  cssnano({
+  require('precss')(),
+  require('cssnano')({
     autoprefixer : {
       add      : true,
       remove   : true,
