@@ -98,6 +98,7 @@
     "yargs": "^6.3.0"
   },
   "devDependencies": {
+    "@alrra/travis-scripts": "^3.0.1",
     "babel-eslint": "^7.1.0",
     "babel-plugin-istanbul": "^3.0.0",
     "chai": "^3.4.1",
