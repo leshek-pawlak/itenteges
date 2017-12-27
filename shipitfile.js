@@ -8,7 +8,7 @@ module.exports = function (shipit) {
 
   shipit.task('deploy', function () {
     return shipit.local('curl --ftp-create-dirs -T dist.tar.gz -u f1101_itenteges:GR6DmL7X6rws ftp://s4.mydevil.net/').then(function () {
-      return shipit.remote('cd /home/lesyek/domains/itenteges.pl/public_nodejs/public && rm -rf * && tar -zxvf ../../dist.tar.gz')
+      return shipit.remote('cd /home/lesyek/domains/itenteges.netlify.com/public_nodejs/public && rm -rf * && tar -zxvf ../../dist.tar.gz')
     })
   })
 }

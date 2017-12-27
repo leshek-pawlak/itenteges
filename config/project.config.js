@@ -23,7 +23,7 @@ const config = {
   // Server Configuration
   // ----------------------------------
   // use string 'localhost' to prevent exposure on local network
-  server_host : process.env.NODE_ENV === 'production' ? 'itenteges.pl' : ip.address(),
+  server_host : process.env.NODE_ENV === 'production' ? 'itenteges.netlify.com' : ip.address(),
   server_port : process.env.NODE_ENV === 'production' ? 80 : process.env.PORT || 3000,
 
   // ----------------------------------
