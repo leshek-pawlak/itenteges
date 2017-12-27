@@ -42,7 +42,7 @@ export const HomeView = () => (
       </div>
       <h1>& Teges</h1>
     </div>
-    <a href='mailto:kontakt@itenteges.netlify.com'>kontakt@itenteges.netlify.com</a>
+    <a href='mailto:itenteges@gmail.com'>itenteges@gmail.com</a>
   </div>
 )
 
